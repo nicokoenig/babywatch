@@ -1,0 +1,8 @@
+.card {
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.card + .card {
+  margin-top: 18px;
+}

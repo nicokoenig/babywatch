@@ -1,3 +1,11 @@
-<p>
-  timeline works!
-</p>
+<mat-card class="card" *ngFor="let event of getTimeline()">
+  <mat-card-header>
+    <mat-card-title
+      >{{ getBabyName() }} {{ event.eventType.title }}</mat-card-title
+    >
+    <mat-card-subtitle>{{ event.date | date: "short" }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content *ngIf="event.comment">
+    {{ event.comment }}
+  </mat-card-content>
+</mat-card>
