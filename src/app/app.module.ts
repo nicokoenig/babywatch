@@ -1,7 +1,8 @@
-import { BrowserModule } from "@angular/platform-browser";
+import { BrowserModule, DomSanitizer } from "@angular/platform-browser";
 import { NgModule, LOCALE_ID } from "@angular/core";
 import de from "@angular/common/locales/de";
 import { registerLocaleData } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -16,7 +17,8 @@ import {
   MatIconModule,
   MatSidenavModule,
   MatListModule,
-  MatCardModule
+  MatCardModule,
+  MatIconRegistry
 } from "@angular/material";
 
 registerLocaleData(de);
@@ -27,6 +29,7 @@ registerLocaleData(de);
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -37,4 +40,26 @@ registerLocaleData(de);
   providers: [{ provide: LOCALE_ID, useValue: "de-de" }],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer
+  ) {
+    this.iconRegistry.addSvgIcon(
+      "feed",
+      this.sanitizer.bypassSecurityTrustResourceUrl("../assets/feed.svg")
+    );
+    this.iconRegistry.addSvgIcon(
+      "bath",
+      this.sanitizer.bypassSecurityTrustResourceUrl("../assets/bath.svg")
+    );
+    this.iconRegistry.addSvgIcon(
+      "diaper",
+      this.sanitizer.bypassSecurityTrustResourceUrl("../assets/diaper.svg")
+    );
+    this.iconRegistry.addSvgIcon(
+      "sleep",
+      this.sanitizer.bypassSecurityTrustResourceUrl("../assets/sleep.svg")
+    );
+  }
+}
