@@ -3,6 +3,7 @@ import { NgModule, LOCALE_ID } from "@angular/core";
 import de from "@angular/common/locales/de";
 import { registerLocaleData } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -20,7 +21,10 @@ import {
   MatListModule,
   MatCardModule,
   MatIconRegistry,
-  MatBottomSheetModule
+  MatBottomSheetModule,
+  MatInputModule,
+  MatSelectModule,
+  MatFormFieldModule
 } from "@angular/material";
 
 registerLocaleData(de);
@@ -37,13 +41,17 @@ registerLocaleData(de);
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatInputModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: "de-de" }],
   entryComponents: [AddEventComponent],
