@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { TimelineComponent } from "./timeline/timeline.component";
 import { SettingsComponent } from "./settings/settings.component";
+import { AddEventComponent } from "./add-event/add-event.component";
 
 import {
   MatToolbarModule,
@@ -18,13 +19,19 @@ import {
   MatSidenavModule,
   MatListModule,
   MatCardModule,
-  MatIconRegistry
+  MatIconRegistry,
+  MatBottomSheetModule
 } from "@angular/material";
 
 registerLocaleData(de);
 
 @NgModule({
-  declarations: [AppComponent, TimelineComponent, SettingsComponent],
+  declarations: [
+    AppComponent,
+    TimelineComponent,
+    SettingsComponent,
+    AddEventComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,9 +42,11 @@ registerLocaleData(de);
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatBottomSheetModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: "de-de" }],
+  entryComponents: [AddEventComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
