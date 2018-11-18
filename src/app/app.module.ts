@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { TimelineComponent } from "./timeline/timeline.component";
 import { SettingsComponent } from "./settings/settings.component";
 import { AddEventComponent } from "./add-event/add-event.component";
+import { DeleteTimelineDialogComponent } from "./delete-timeline-dialog/delete-timeline-dialog.component";
 
 import {
   MatToolbarModule,
@@ -26,7 +27,8 @@ import {
   MatSelectModule,
   MatFormFieldModule,
   MatExpansionModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatDialogModule
 } from "@angular/material";
 
 registerLocaleData(de);
@@ -36,7 +38,8 @@ registerLocaleData(de);
     AppComponent,
     TimelineComponent,
     SettingsComponent,
-    AddEventComponent
+    AddEventComponent,
+    DeleteTimelineDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -55,10 +58,11 @@ registerLocaleData(de);
     MatSelectModule,
     MatFormFieldModule,
     MatExpansionModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: "de-de" }],
-  entryComponents: [AddEventComponent],
+  entryComponents: [AddEventComponent, DeleteTimelineDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

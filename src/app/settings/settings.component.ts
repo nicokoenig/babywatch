@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { BabywatchService } from "../babywatch.service";
-import { MatSnackBar } from "@angular/material";
+import { MatSnackBar, MatDialog } from "@angular/material";
+import { DeleteTimelineDialogComponent } from "../delete-timeline-dialog/delete-timeline-dialog.component";
 
 @Component({
   selector: "bw-settings",
@@ -10,7 +11,8 @@ import { MatSnackBar } from "@angular/material";
 export class SettingsComponent implements OnInit {
   constructor(
     private babyService: BabywatchService,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {}
@@ -26,7 +28,21 @@ export class SettingsComponent implements OnInit {
     });
   }
 
+  getBabyNameWithFallback() {
+    return this.babyService.babyName || "das Baby";
+  }
+
   clearTimeline() {
-    this.babyService.clearTimeline();
+    const dialogRef = this.dialog.open(DeleteTimelineDialogComponent, {
+      width: "80%",
+      maxWidth: "450px",
+      data: this.getBabyNameWithFallback()
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.babyService.clearTimeline();
+      }
+    });
   }
 }
