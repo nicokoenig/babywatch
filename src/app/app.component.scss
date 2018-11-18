@@ -1,9 +1,4 @@
-// Theming-Funktionen von Angular Material
-@import "~@angular/material/theming";
-// Farbpalette für die Farbe Indigo
-$primary-palette: mat-palette($mat-indigo);
-// Abfragen der Primärfarbe (im Standard-Variant 500) aus der Primary-Palette
-$primary: mat-color($primary-palette);
+@import "./../theme";
 
 .sidenav {
   width: 65%;
@@ -28,6 +23,10 @@ $primary: mat-color($primary-palette);
   z-index: 1;
   flex-grow: 0;
   flex-shrink: 0;
+}
+
+.stretch {
+  flex-grow: 1;
 }
 
 .content {
