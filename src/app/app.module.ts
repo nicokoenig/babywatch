@@ -9,11 +9,15 @@ import {
   MatToolbarModule,
   MatButtonModule,
   MatIconModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatListModule
 } from "@angular/material";
 
+import { TimelineComponent } from "./timeline/timeline.component";
+import { SettingsComponent } from "./settings/settings.component";
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TimelineComponent, SettingsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,7 +25,8 @@ import {
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
