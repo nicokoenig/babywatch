@@ -24,7 +24,9 @@ import {
   MatBottomSheetModule,
   MatInputModule,
   MatSelectModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatExpansionModule,
+  MatSnackBarModule
 } from "@angular/material";
 
 registerLocaleData(de);
@@ -51,7 +53,9 @@ registerLocaleData(de);
     MatBottomSheetModule,
     MatInputModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatExpansionModule,
+    MatSnackBarModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: "de-de" }],
   entryComponents: [AddEventComponent],
